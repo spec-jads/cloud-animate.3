@@ -2,9 +2,12 @@
     box-sizing: border-box;
     margin: 0;
 }
+body{
+    background-color: skyblue;
+}
 nav{
     width: 100%;
-    /* max-width: 995px; */
+    max-width: 995px; 
     background-color: #f1f1f1;
     border: 1px solid #ddd;
     margin: 0 auto;
@@ -21,18 +24,24 @@ nav a{
     display: block;
     padding: 12px;
     
+    
 }
 nav a:hover{
     background-color: #bebebe;
     color: #fffefd;
-}
+    border: 1px solid rgb(250, 237, 237);
+    border-radius: 50%;
+    animation: round 15s ease-in-out infinite ;
+    position: relative;
+    
+}                
+
 nav li:nth-of-type(4){
     background-color: rgb(68, 144, 68);
 }
 a.fb{
     background: url(first.png)no-repeat center;
     background-size: 70%;
-    
 }
 a.map{
     background: url(second.png)no-repeat center;
@@ -42,13 +51,17 @@ a.map{
 .media{
     text-indent: -10000px;
 }
-nav ul .media{
-
+nav ul.media{
+    flex: 1 1 0;
+    display: flex; 
 }
+
 .media{
     max-width: 50px;
     margin: 0 auto;
-    display: flex;
+}
+.cloud{
+    background: url(cloud1.png);
 }
 
 
@@ -88,4 +101,9 @@ nav ul .media{
     .media{
         margin: 0;
     }
+}
+@keyframes round{
+    0%{color: #d0e22b; box-shadow: 2px 3px 6px #8f8fff; top: 0px; left: 12px;}
+    50%{background-color: #8fbc8f; top: 0px; transform: rotateX(160deg);} 
+    100%{background-color: #ffb8c2; top: 0; left: 12px;  }
 }
