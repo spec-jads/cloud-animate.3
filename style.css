@@ -1,109 +1,190 @@
 *{
-    box-sizing: border-box;
     margin: 0;
+   
 }
-body{
-    background-color: skyblue;
+html,body{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  width: 100%;
+  height: 100%;
+  /* overflow: hidden;   */
 }
 nav{
-    width: 100%;
-    max-width: 995px; 
-    background-color: #f1f1f1;
-    border: 1px solid #ddd;
-    margin: 0 auto;
+    background-color: #ddd;
 }
 nav ul{
-  list-style-type: none;
-  padding: 0;
-  text-align: center;
-  
+    list-style-type: none;
+    padding: 0;
+     text-align: center; 
 }
+
 nav a{
     text-decoration: none;
-    color: cadetblue;
+    color: white;
     display: block;
-    padding: 12px;
-    
-    
+    padding: 11px;
 }
-nav a:hover{
-    background-color: #bebebe;
-    color: #fffefd;
-    border: 1px solid rgb(250, 237, 237);
-    border-radius: 50%;
-    animation: round 15s ease-in-out infinite ;
-    position: relative;
-    
-}                
 
-nav li:nth-of-type(4){
-    background-color: rgb(68, 144, 68);
+nav a:hover{
+     background-color: #117766;
+     color: #fff;
+}
+nav a.active{
+    color: #fff;
+    background-color: #079907;
 }
 a.fb{
-    background: url(first.png)no-repeat center;
-    background-size: 70%;
+    background: url(face.png)no-repeat center;
+    background-size: 80%;
 }
 a.map{
-    background: url(second.png)no-repeat center;
-    background-size: 75%;
+    background: url(loc.png)no-repeat center;
+    background-size: 80%;
 }
-
-.media{
+.media a{
     text-indent: -10000px;
 }
+.media{
+    max-width: 79px;
+    margin: 0 auto;
+    display: flex;
+}
+nav ul.media li{
+  flex: 1 1 0;
+}
+
+/* flex styles */
+
 nav ul.media{
     flex: 1 1 0;
-    display: flex; 
+}
+.sky,.green,.road,.park,.raod{
+        position: relative;
+}
+.sky{
+    height: 35%;
+    background-color: skyblue;
+   
+}
+.green{
+    height: 25%;
+    background-color: seagreen;
+}
+.road{
+    border-top: 10px solid grey;  
+    height: 16%;
+    background-color: dimgray;
+}
+.park{
+    height: 3%;
+    background-color: rgb(28, 107, 28);
+}
+.raod{
+    height: 16%;
+    background-color: dimgrey;
+    border-bottom: 10ps solid grey;
+}
+.line{
+    border-top: 4px dashed #fff;
+    
+    width: 100%;
+    position: absolute;
+    height: 0;
+    top: 50%;
+}
+.strite{
+    border-top: 4px dashed #fff;
+    width: 100%;
+    position: absolute;
+    height: 0;
+    top: 50%;
+}
+img.mario{
+   position: absolute;
+   bottom: 63%;
+   left: 12%;
+   animation: drive 8s both  linear infinite,
+              jump 0.2s 0.4s ease;
+}
+img.lugi{
+    position: absolute;
+    bottom: 12%;
+    animation: drive 8s ease-in-out infinite;
+    
+}
+.clouds{
+    width: 100%;
+    height: auto;
+}
+.clouds{
+    position: absolute;
+    
+}
+.first{
+    top: 2px;
+    opacity: 0.7;
+    width: 22%;
+    animation: wind 155s ease both infinite;
+}
+.second{
+    left: 123px;
+    width: 23%;
+    animation: wind 175s ease both infinite;
+}
+.third{
+      left: 296px;
+      width: 23%;
+      animation: wind 115s ease both infinite;
+}
+.fourth{
+    left:486px;
+    width: 24%;
+    opacity: 0.8;
+    animation: wind 135s ease both infinite;
 }
 
-.media{
-    max-width: 50px;
-    margin: 0 auto;
+
+
+
+/* keyframes */
+@keyframes drive{
+ from{transform: translateX(-200px);}
+ to{transform: translateX(1000px);}
 }
-.cloud{
-    background: url(cloud1.png);
+@keyframes jump{
+  0%{left: 19%;}
+  50%{top: -100px;}
+  100%{left: 19%;}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@keyframes wind{
+    from{transform: translate(-200px);}
+    to{transform: translate(1000px);}
+}
 
 /* media queries */
 @media screen and (min-width:765px){
     nav ul{
         display: flex;
-        justify-content: space-between;
-    }
-    nav li{
-      flex: 1 1 300px;
+        justify-content: flex-start;
     }
     nav{
-        display:flex;
+        display: flex;
         justify-content: space-between;
     }
     .media{
         margin: 0;
     }
+    .clouds{
+        display: flex;
+    }
+   
 }
-@keyframes round{
-    0%{color: #d0e22b; box-shadow: 2px 3px 6px #8f8fff; top: 0px; left: 12px;}
-    50%{background-color: #8fbc8f; top: 0px; transform: rotateX(160deg);} 
-    100%{background-color: #ffb8c2; top: 0; left: 12px;  }
+@media screen and (max-width:420px){
+   .fourth{
+       left: 256px;
+   }
+   .third{
+       left: 226px;
+   }
+    
+
 }
