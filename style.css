@@ -8,7 +8,7 @@ html,body{
   height: 100%;
    overflow: hidden;  
 }
-nav{
+.container{
     background-color: #ddd;
 }
 nav ul{
@@ -73,11 +73,13 @@ nav ul.media{
 .green{
     height: 25%;
     background-color: seagreen;
+    z-index: 2;
 }
 .road{
     border-top: 10px solid grey;  
     height: 16%;
     background-color: dimgray;
+    z-index: 20;
 }
 .park{
     height: 3%;
@@ -121,7 +123,7 @@ img.lugi{
 }
 .clouds{
     position: absolute;
-    
+    z-index: 2;
 }
 .first{
     top: 2px;
@@ -133,6 +135,7 @@ img.lugi{
     left: 123px;
     width: 23%;
     animation: wind 175s ease both infinite;
+    z-index: 6;
 }
 .third{
       left: 296px;
@@ -145,19 +148,46 @@ img.lugi{
     opacity: 0.8;
     animation: wind 135s ease both infinite;
 }
-
-
-
+.sun,.rise{
+    position: relative;
+    
+}
+.sun{
+    width: 120px;
+    height: 120px;
+    
+    bottom: -230px;
+    left: 350px;
+    border-radius: 50%;
+    background: linear-gradient(#ff0,#d00);
+    z-index: 1;
+    box-shadow: 0 0 10px 3px white;
+    animation: arise 24s both linear ;
+}
+.fa-home{
+    color: rgb(245, 246, 246); 
+}
 
 /* keyframes */
+@keyframes arise{
+   0%{bottom: -10px;}
+   50%{top: 25px;}
+   100%{top: 10px;}
+}
+
+
+
+
+
+
 @keyframes drive{
  from{transform: translateX(-200px);}
  to{transform: translateX(1000px);}
 }
 @keyframes jump{
-  0%{left: 19%;}
+  0%{left: 19%; transform: rotate(0deg);}
   50%{top: -100px;}
-  100%{left: 19%;}
+  100%{left: 19%; transform: rotate(360deg);}
 }
 @keyframes wind{
     from{transform: translate(-200px);}
